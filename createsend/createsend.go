@@ -13,7 +13,7 @@ import (
 const (
 	libraryVersion = "0.0.1"
 	userAgent      = "createsend-go/" + libraryVersion
-	defaultBaseURL = "https://api.createsend.com/api/v3.1/"
+	defaultBaseURL = "https://api.createsend.com/api/v3.2/"
 )
 
 // A APIClient manages communication with the Campaign Monitor API.
@@ -107,7 +107,7 @@ func (c *APIClient) Do(req *http.Request, v interface{}) error {
 		if c.Log != nil {
 			body, err := ioutil.ReadAll(resp.Body)
 			if err != nil {
-				log.Printf("ReadAll failed: %s")
+				log.Printf("ReadAll failed: %s", err)
 			}
 			c.Log.Printf("http response %d body:\n%s", resp.StatusCode, body)
 		}

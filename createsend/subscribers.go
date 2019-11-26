@@ -142,9 +142,10 @@ func (c *APIClient) DeleteSubscriber(listID string, email string) error {
 // See http://www.campaignmonitor.com/api/subscribers/#adding_a_subscriber for
 // more information.
 type ImportSubscriber struct {
-	EmailAddress string
-	Name         string        `json:",omitempty"`
-	CustomFields []CustomField `json:",omitempty"`
+	EmailAddress   string
+	Name           string        `json:",omitempty"`
+	ConsentToTrack string        `json:",omitempty"`
+	CustomFields   []CustomField `json:",omitempty"`
 }
 
 type ImportSubscribers struct {
